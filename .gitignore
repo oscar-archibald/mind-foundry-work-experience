@@ -1,2 +1,3 @@
-pipeline.joblib
+*.joblib
 .openml.pkl
+tree.png
