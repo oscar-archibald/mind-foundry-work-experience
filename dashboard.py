@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import OneHotEncoder
@@ -16,7 +17,7 @@ st.title("Train your own model")
 
 st.write("### Choose your parameters to train the model from:")
 
-no_cols = st.slider("Number of parameters", 1, len(col), step=1)
+no_cols = st.slider("Number of parameters", 1, len(col), step=1, value=4)
 
 cols = []
 
@@ -27,9 +28,9 @@ st.write("### Choose the target variable:")
 
 g = st.selectbox("Target", col)
 
-st.write("### Choose the test-train split:")
+st.write("### Choose the test-size:")
 
-split = st.slider("test-train split", 0.05, 0.95, step=0.05)
+split = st.slider("test-train split", 0.05, 0.95, step=0.05, value=0.9)
 
 train_feat, test_feat, train_target, test_target = train_test_split(X[cols], X[g], test_size=split, random_state=1)
 
@@ -42,8 +43,9 @@ models = {'Classifier': DecisionTreeClassifier, 'Regressor': DecisionTreeRegress
 model_selected = st.selectbox("Options", models.keys())
 
 transformer_tuples = []
-for i in range(len(cols)):
-    transformer_tuples.append((OneHotEncoder(), [cols[i]]))
+for _col in cols:
+    if X.dtypes[_col] == 'object':
+        transformer_tuples.append((OneHotEncoder(), [_col]))
 
 pipeline = make_pipeline(
     make_column_transformer(*transformer_tuples)
