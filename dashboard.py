@@ -30,7 +30,7 @@ st.write("### Choose the target variable:")
 
 target = st.selectbox("Target", col, index=2)
 
-col.remove(target)
+targetcol = list(filter(lambda x: x != target, col))
 
 st.write("### Choose your parameters to train the model from:")
 
@@ -44,7 +44,7 @@ cols = []
 lcol, mcol, rcol = st.columns(3)
 
 count=0
-for _col in col:
+for _col in targetcol:
     if count%3==0:
         with lcol:
             if st.checkbox(_col):
@@ -82,9 +82,12 @@ for _col in cols:
     if X.dtypes[_col] == 'object':
         transformer_tuples.append((OneHotEncoder(), [_col]))
 
-pipeline = make_pipeline(
-    make_column_transformer(*transformer_tuples)
-    , models[model_selected]())
+if transformer_tuples:
+    pipeline = make_pipeline(
+        make_column_transformer(*transformer_tuples)
+        , models[model_selected]())
+else:
+    pipeline = make_pipeline(models[model_selected]())
 
 pipeline.fit(train_feat, train_target)
 
