@@ -55,13 +55,13 @@ For any other inevitable problems, consult the internet.
 
 ### File index
 
-`dashboard.py` - A complete Streamlit application which allows users to train their own ML model on a dataset and see how it performs
-`flowerdecisiontree.py` - Following the tutorial for `sklearn`'s decision tree models using the `iris` dataset
-`folium.ipynb` - Following the tutorial for the `folium` plugin
-`fortune500.csv` - A dataset for the Jupyter tutorial
-`jupyter-tutorial.ipynb` - Following the tutorial for Jupyter
-`map.png` and `nymap.png` and `taximap.png` - Supplementary to `taxidrives.ipynb`
-`pipeline_dist.joblib` and `pipeline_time.joblib` - Outputs of `taximl.ipynb`, supplementary to `predict.py`
-`predict.py` - A complete Streamlit application which allows a user to input parameters and see the prediction of the model
-`taxidrives.ipynb` - **The biggest project**, a thorough and well-presented exploration of the taxi dataset in Jupyter
-`taximl.ipynb` - The training of the models used in `predict.py`, and the sandbox for developing the code used in `dashboard.py`
+* `dashboard.py` - A complete Streamlit application which allows users to train their own ML model on a dataset and see how it performs
+* `flowerdecisiontree.py` - Following the tutorial for `sklearn`'s decision tree models using the `iris` dataset
+* `folium.ipynb` - Following the tutorial for the `folium` plugin
+* `fortune500.csv` - A dataset for the Jupyter tutorial
+* `jupyter-tutorial.ipynb` - Following the tutorial for Jupyter
+* `map.png` and `nymap.png` and `taximap.png` - Supplementary to `taxidrives.ipynb`
+* `pipeline_dist.joblib` and `pipeline_time.joblib` - Outputs of `taximl.ipynb`, supplementary to `predict.py`
+* `predict.py` - A complete Streamlit application which allows a user to input parameters and see the prediction of the model
+* `taxidrives.ipynb` - **The biggest project**, a thorough and well-presented exploration of the taxi dataset in Jupyter
+* `taximl.ipynb` - The training of the models used in `predict.py`, and the sandbox for developing the code used in `dashboard.py`
