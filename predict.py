@@ -24,7 +24,7 @@ start_latitude = st_data["last_clicked"]["lat"]
 start_longitude = st_data["last_clicked"]["lng"]
 
 time_model = load("pipeline_time.joblib")
-distance_model = load("pipeline_distance.joblib")
+distance_model = load("pipeline_dist.joblib")
 
 
 dayperioddict = {
